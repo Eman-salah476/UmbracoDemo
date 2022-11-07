@@ -1,0 +1,46 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Articles>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+	Layout = "Master.cshtml";
+	var articlesList = Model.Children();
+}
+
+<div class="my-2">
+	<h3>@Model.Name</h3>
+	</div>
+<div>
+<hr />
+@if (articlesList != null)
+{
+
+	@foreach (var article in articlesList)
+	{
+	<div class="card my-2">
+		<div class="row p-2 ">
+					<div class="col-md-2 b-right">
+						<img src="@article.GetProperty("featuredImage")?.GetValue()" width="150" height="120" alt="image" />
+					</div>
+					<div class="col-md-6 b-right">
+						<h5>@article.Name</h5>
+						<p>Publisher: <span class="sub-text" >@article.CreatorName() </span></p>
+					
+						<div class="overflow">
+							@article.GetProperty("brief")?.GetValue()
+						</div>
+						
+						<span><a href="@article.Url()">See More</a></span>
+					</div>
+					<div class="col-md-3 text-end fw-light">
+						<p>Created: <span>@article.CreateDate </span></p>
+						<p>Updated: <span>@article.UpdateDate</span></p>
+					</div>
+		</div>
+		</div>
+
+	}
+}
+	</div>
+
+
+

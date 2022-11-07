@@ -1,0 +1,17 @@
+.b-right{
+    border-right:1px solid grey;
+}
+span{
+    color:grey;
+    font-size:15px;
+}
+a{
+    text-decoration:none;
+}
+.overflow{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    height:55px;
+    width:100%;
+}

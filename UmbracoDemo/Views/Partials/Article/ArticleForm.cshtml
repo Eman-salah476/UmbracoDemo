@@ -1,0 +1,40 @@
+﻿@model UmbracoDemo.Dtos.ArticleToAddDto;
+@{
+}
+
+
+@using (Html.BeginUmbracoForm("Submit", "Article"))
+{
+    <div class="mb-3">
+        <label asp-for="Title" class="form-label"></label>
+        <input asp-for="Title" class="form-control">
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Brief" class="form-label"></label>
+        @*<input asp-for="Brief" class="form-control">*@
+        <textarea rows="7" cols="120" maxlength="500" id="Brief" name="Brief" class="form-control"></textarea>
+    </div>
+
+        <div class="mb-3">
+        <label asp-for="DateFrom" class="form-label"></label>
+        <input asp-for="DateFrom" class="form-control">
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="DateTo" class="form-label"></label>
+        <input asp-for="DateTo" class="form-control">
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="FeaturedImage" class="form-label"></label>
+        <input asp-for="FeaturedImage" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label asp-for="MediaImage" class="form-label"></label>
+        <input asp-for="MediaImage" class="form-control">
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+}

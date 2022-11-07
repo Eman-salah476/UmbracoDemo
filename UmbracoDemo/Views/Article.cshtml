@@ -1,0 +1,44 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Article>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.Models
+@{
+    Layout = "Master.cshtml";
+}
+
+<div class="row my-3">
+    <div class="col-md-3 b-right">
+        <img src="@Model.Value("featuredImage")" alt="@System.IO.Path.GetFileName(Model.FeaturedImage)" width="200px" height="200px" />
+    </div>
+
+    <div class="col-md-3 b-right">
+        @{
+            var typedMediaPickerSingle = Model.Value<MediaWithCrops>("mediaImage");
+            if (typedMediaPickerSingle != null)
+            {
+                <img src="@typedMediaPickerSingle.MediaUrl()" width="200px" height="200px" alt="@typedMediaPickerSingle.Value("alt")" />
+            }
+        }
+
+    </div>
+
+    <div class="col-md-3">
+        <h5>@Model.Value("title")</h5>
+        <p>Publisher: <span>@Model.CreatorName()</span></p>
+
+    </div>
+    <div class="col-md-3">
+        <p>Created Date: <span>@Model.CreateDate</span></p>
+        <p>Updated Date: <span>@Model.UpdateDate</span></p>
+    </div>
+</div>
+
+<div>
+    <p>Start Date: <span>@Model.Value("dateFrom")</span></p>
+    <p>End Date: <span>@(Model.Value<DateTime>("dateTo").ToShortDateString())</span></p>
+</div>
+<div class="row">
+    <p>
+        @Model.Value("brief")
+    </p>
+</div>

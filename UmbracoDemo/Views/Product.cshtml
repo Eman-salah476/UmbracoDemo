@@ -1,0 +1,11 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Product>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+	Layout = null;
+	IPublishedContent catefgoryPicker = Model.ProsuctCategory;
+}
+
+<h4>Name: @Model.Value("productName")</h4>
+<p>Category Content Name :@catefgoryPicker?.Name</p>
+<p>Category value :@catefgoryPicker?.Value("categoryName")</p>
