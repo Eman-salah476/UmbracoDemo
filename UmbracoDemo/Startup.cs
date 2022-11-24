@@ -1,6 +1,7 @@
 using Umbraco.Cms.Core.Notifications;
 using UmbracoDemo.Configurations;
 using UmbracoDemo.Extensions;
+using UmbracoDemo.Models;
 using UmbracoDemo.Services;
 using UmbracoDemo.Services.Interfaces;
 
@@ -37,7 +38,11 @@ namespace UmbracoDemo
         {
             //Configure Services
             services.AddTransient<IUploadedFileService, UploadedFileService>();
-           
+
+            //Configure Email
+            var emailConfig = _config.GetSection("EmailConfiguration").Get<EmailConfiguration>();
+            services.AddSingleton(emailConfig);
+
             //Configure Umbraco
             services.AddUmbraco(_env, _config)
                 .AddBackOffice()
