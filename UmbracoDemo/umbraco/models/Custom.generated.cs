@@ -18,30 +18,30 @@ using Umbraco.Extensions;
 
 namespace Umbraco.Cms.Web.Common.PublishedModels
 {
-	/// <summary>About Us</summary>
-	[PublishedModel("aboutUs")]
-	public partial class AboutUs : PublishedContentModel
+	/// <summary>Custom Image Local</summary>
+	[PublishedModel("custom")]
+	public partial class Custom : PublishedContentModel, IImage
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.1+25a20cf")]
-		public new const string ModelTypeAlias = "aboutUs";
+		public new const string ModelTypeAlias = "custom";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.1+25a20cf")]
-		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+		public new const PublishedItemType ModelItemType = PublishedItemType.Media;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.1+25a20cf")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		public new static IPublishedContentType GetModelContentType(IPublishedSnapshotAccessor publishedSnapshotAccessor)
 			=> PublishedModelUtility.GetModelContentType(publishedSnapshotAccessor, ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.1+25a20cf")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<AboutUs, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<Custom, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(publishedSnapshotAccessor), selector);
 #pragma warning restore 0109
 
 		private IPublishedValueFallback _publishedValueFallback;
 
 		// ctor
-		public AboutUs(IPublishedContent content, IPublishedValueFallback publishedValueFallback)
+		public Custom(IPublishedContent content, IPublishedValueFallback publishedValueFallback)
 			: base(content, publishedValueFallback)
 		{
 			_publishedValueFallback = publishedValueFallback;
@@ -50,73 +50,64 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		// properties
 
 		///<summary>
-		/// Content picker
+		/// Title
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.1+25a20cf")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("contentPicker")]
-		public virtual global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent ContentPicker => this.Value<global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent>(_publishedValueFallback, "contentPicker");
+		[ImplementPropertyType("title")]
+		public virtual string Title => this.Value<string>(_publishedValueFallback, "title");
 
 		///<summary>
-		/// Date Picker
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.1+25a20cf")]
-		[ImplementPropertyType("datePicker")]
-		public virtual global::System.DateTime DatePicker => this.Value<global::System.DateTime>(_publishedValueFallback, "datePicker");
-
-		///<summary>
-		/// drop down
+		/// Title En
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.1+25a20cf")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("dropDown")]
-		public virtual string DropDown => this.Value<string>(_publishedValueFallback, "dropDown");
+		[ImplementPropertyType("titleEn")]
+		public virtual string TitleEn => this.Value<string>(_publishedValueFallback, "titleEn");
 
 		///<summary>
-		/// Goals
+		/// Title FR
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.1+25a20cf")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("goals")]
-		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString Goals => this.Value<global::Umbraco.Cms.Core.Strings.IHtmlEncodedString>(_publishedValueFallback, "goals");
+		[ImplementPropertyType("titleFR")]
+		public virtual string TitleFR => this.Value<string>(_publishedValueFallback, "titleFR");
 
 		///<summary>
-		/// image
+		/// Size: in bytes
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.1+25a20cf")]
+		[ImplementPropertyType("umbracoBytes")]
+		public virtual long UmbracoBytes => global::Umbraco.Cms.Web.Common.PublishedModels.Image.GetUmbracoBytes(this, _publishedValueFallback);
+
+		///<summary>
+		/// Type
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.1+25a20cf")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("image")]
-		public virtual global::Umbraco.Cms.Core.PropertyEditors.ValueConverters.ImageCropperValue Image => this.Value<global::Umbraco.Cms.Core.PropertyEditors.ValueConverters.ImageCropperValue>(_publishedValueFallback, "image");
+		[ImplementPropertyType("umbracoExtension")]
+		public virtual string UmbracoExtension => global::Umbraco.Cms.Web.Common.PublishedModels.Image.GetUmbracoExtension(this, _publishedValueFallback);
 
 		///<summary>
-		/// Mission
+		/// Image
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.1+25a20cf")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("mission")]
-		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString Mission => this.Value<global::Umbraco.Cms.Core.Strings.IHtmlEncodedString>(_publishedValueFallback, "mission");
+		[ImplementPropertyType("umbracoFile")]
+		public virtual global::Umbraco.Cms.Core.PropertyEditors.ValueConverters.ImageCropperValue UmbracoFile => global::Umbraco.Cms.Web.Common.PublishedModels.Image.GetUmbracoFile(this, _publishedValueFallback);
 
 		///<summary>
-		/// Repeatable string
+		/// Height: in pixels
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.1+25a20cf")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("repeatableString")]
-		public virtual global::System.Collections.Generic.IEnumerable<string> RepeatableString => this.Value<global::System.Collections.Generic.IEnumerable<string>>(_publishedValueFallback, "repeatableString");
+		[ImplementPropertyType("umbracoHeight")]
+		public virtual int UmbracoHeight => global::Umbraco.Cms.Web.Common.PublishedModels.Image.GetUmbracoHeight(this, _publishedValueFallback);
 
 		///<summary>
-		/// Time Picker
+		/// Width: in pixels
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.1+25a20cf")]
-		[ImplementPropertyType("timePicker")]
-		public virtual global::System.DateTime TimePicker => this.Value<global::System.DateTime>(_publishedValueFallback, "timePicker");
-
-		///<summary>
-		/// Vision
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.1+25a20cf")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("vision")]
-		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString Vision => this.Value<global::Umbraco.Cms.Core.Strings.IHtmlEncodedString>(_publishedValueFallback, "vision");
+		[ImplementPropertyType("umbracoWidth")]
+		public virtual int UmbracoWidth => global::Umbraco.Cms.Web.Common.PublishedModels.Image.GetUmbracoWidth(this, _publishedValueFallback);
 	}
 }

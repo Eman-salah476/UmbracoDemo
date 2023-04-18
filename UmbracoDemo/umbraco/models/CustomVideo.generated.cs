@@ -18,30 +18,30 @@ using Umbraco.Extensions;
 
 namespace Umbraco.Cms.Web.Common.PublishedModels
 {
-	/// <summary>Product</summary>
-	[PublishedModel("product")]
-	public partial class Product : PublishedContentModel
+	/// <summary>Custom Video</summary>
+	[PublishedModel("customVideo")]
+	public partial class CustomVideo : PublishedContentModel
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.1+25a20cf")]
-		public new const string ModelTypeAlias = "product";
+		public new const string ModelTypeAlias = "customVideo";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.1+25a20cf")]
-		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+		public new const PublishedItemType ModelItemType = PublishedItemType.Media;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.1+25a20cf")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		public new static IPublishedContentType GetModelContentType(IPublishedSnapshotAccessor publishedSnapshotAccessor)
 			=> PublishedModelUtility.GetModelContentType(publishedSnapshotAccessor, ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.1+25a20cf")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<Product, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<CustomVideo, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(publishedSnapshotAccessor), selector);
 #pragma warning restore 0109
 
 		private IPublishedValueFallback _publishedValueFallback;
 
 		// ctor
-		public Product(IPublishedContent content, IPublishedValueFallback publishedValueFallback)
+		public CustomVideo(IPublishedContent content, IPublishedValueFallback publishedValueFallback)
 			: base(content, publishedValueFallback)
 		{
 			_publishedValueFallback = publishedValueFallback;
@@ -50,43 +50,51 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		// properties
 
 		///<summary>
-		/// Product File
+		/// Title Video AR
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.1+25a20cf")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("productFile")]
-		public virtual global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.MediaWithCrops> ProductFile => this.Value<global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.MediaWithCrops>>(_publishedValueFallback, "productFile");
+		[ImplementPropertyType("titleVideoAR")]
+		public virtual string TitleVideoAR => this.Value<string>(_publishedValueFallback, "titleVideoAR");
 
 		///<summary>
-		/// Product Image
+		/// Title video EN
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.1+25a20cf")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("productImage")]
-		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops ProductImage => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "productImage");
+		[ImplementPropertyType("titleVideoEN")]
+		public virtual string TitleVideoEN => this.Value<string>(_publishedValueFallback, "titleVideoEN");
 
 		///<summary>
-		/// Product Name
+		/// Title video FR
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.1+25a20cf")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("productName")]
-		public virtual string ProductName => this.Value<string>(_publishedValueFallback, "productName");
+		[ImplementPropertyType("titleVideoFR")]
+		public virtual string TitleVideoFR => this.Value<string>(_publishedValueFallback, "titleVideoFR");
 
 		///<summary>
-		/// Product Video
+		/// Video AR
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.1+25a20cf")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("productVideo")]
-		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops ProductVideo => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "productVideo");
+		[ImplementPropertyType("videoAR")]
+		public virtual string VideoAR => this.Value<string>(_publishedValueFallback, "videoAR");
 
 		///<summary>
-		/// Product Category
+		/// Video EN
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.1+25a20cf")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("prosuctCategory")]
-		public virtual global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent ProsuctCategory => this.Value<global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent>(_publishedValueFallback, "prosuctCategory");
+		[ImplementPropertyType("videoEN")]
+		public virtual string VideoEN => this.Value<string>(_publishedValueFallback, "videoEN");
+
+		///<summary>
+		/// Video FR
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.1+25a20cf")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("videoFR")]
+		public virtual string VideoFR => this.Value<string>(_publishedValueFallback, "videoFR");
 	}
 }

@@ -31,8 +31,8 @@ namespace UmbracoDemo.Extensions
             //To Get Extension of file
             //var extension = mediaItem.Properties["umbracoExtension"]?.GetValue();
             
-            if (!mediaItem.HasProperty("umbracoBytes"))
-                return false;
+            //if (!mediaItem.HasProperty("umbracoBytes"))
+            //    return false;
            
             var sizeInBytes = mediaItem.GetValue("umbracoBytes")?.ToString();
             double.TryParse(sizeInBytes, out mediaSize);
