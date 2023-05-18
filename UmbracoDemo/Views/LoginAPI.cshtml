@@ -1,0 +1,33 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.LoginApi>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using UmbracoDemo.Controllers.API
+@using UmbracoDemo.Dtos.User
+@{
+    Layout = "Master.cshtml";
+    var loginModel = new UserTOLogin();
+}
+<div class="login-form">
+
+    @using (Html.BeginForm("Login", "UserManagementController", FormMethod.Post))
+    {
+
+        <h4>Log in with a local account.</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="mb-3">
+            <label asp-for="@loginModel.Username" class="form-label"></label>
+            <input asp-for="@loginModel.Username" class="form-control" />
+            <span asp-validation-for="@loginModel.Username" class="form-text text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="@loginModel.Password" class="form-label"></label>
+            <input asp-for="@loginModel.Password" class="form-control" />
+            <span asp-validation-for="@loginModel.Password" class="form-text text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Log in</button>
+
+
+    }
+</div>

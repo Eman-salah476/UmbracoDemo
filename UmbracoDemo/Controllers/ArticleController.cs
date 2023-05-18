@@ -70,60 +70,60 @@ namespace UmbracoDemo.Controllers
         }
 
 
-        [HttpPost]
-        //Can be accessed througth umbraco only 
-        [ValidateUmbracoFormRouteString]
-        public async Task<IActionResult> Submit(ArticleToAddDto articleToAdd)
-        {
-            if (!ModelState.IsValid)
-            {
-                ModelState.AddModelError("", "The model is not valid");
-                return RedirectToCurrentUmbracoPage();
-            }
+        //[HttpPost]
+        ////Can be accessed througth umbraco only 
+        //[ValidateUmbracoFormRouteString]
+        //public async Task<IActionResult> Submit(ArticleToAddDto articleToAdd)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        ModelState.AddModelError("", "The model is not valid");
+        //        return RedirectToCurrentUmbracoPage();
+        //    }
 
-            #region Create Content
-            //Create a variable for the GUID of the parent where you want to add a child item(Articles)
-            var parentId = new Guid("753f9547-d41a-4ee0-bae8-91c160bc08f1");
-           //Create service for the article content
-            var articleContent = _contentService.Create(articleToAdd.Title, parentId, Article.ModelTypeAlias);
-            articleContent.SetCultureName(articleToAdd.Title, "en-US");
+        //    #region Create Content
+        //    //Create a variable for the GUID of the parent where you want to add a child item(Articles)
+        //    var parentId = new Guid("753f9547-d41a-4ee0-bae8-91c160bc08f1");
+        //   //Create service for the article content
+        //    var articleContent = _contentService.Create(articleToAdd.Title, parentId, Article.ModelTypeAlias);
+        //    articleContent.SetCultureName(articleToAdd.Title, "en-US");
 
-            //Assign data to content properties
-            var titleProperty = Article.GetModelPropertyType(_snapshotAccessor, a => a.Title);
-            articleContent.SetValue(titleProperty?.Alias, articleToAdd.Title, "en-US");
-            var briefProperty = Article.GetModelPropertyType(_snapshotAccessor, a => a.Brief);
-            articleContent.SetValue(briefProperty?.Alias, articleToAdd.Brief, "en-US");
+        //    //Assign data to content properties
+        //    var titleProperty = Article.GetModelPropertyType(_snapshotAccessor, a => a.Title);
+        //    articleContent.SetValue(titleProperty?.Alias, articleToAdd.Title, "en-US");
+        //    var briefProperty = Article.GetModelPropertyType(_snapshotAccessor, a => a.Brief);
+        //    articleContent.SetValue(briefProperty?.Alias, articleToAdd.Brief, "en-US");
 
-            //Deal with DateTime and Dateonly
-            var dateFromProperty = Article.GetModelPropertyType(_snapshotAccessor, a => a.DateFrom);
-            articleContent.SetValue(dateFromProperty.Alias, articleToAdd.DateFrom);
+        //    //Deal with DateTime and Dateonly
+        //    var dateFromProperty = Article.GetModelPropertyType(_snapshotAccessor, a => a.DateFrom);
+        //    articleContent.SetValue(dateFromProperty.Alias, articleToAdd.DateFrom);
 
-            var dateToProperty = Article.GetModelPropertyType(_snapshotAccessor, a => a.DateTo);
-            articleContent.SetValue(dateToProperty.Alias, articleToAdd.DateTo);
+        //    var dateToProperty = Article.GetModelPropertyType(_snapshotAccessor, a => a.DateTo);
+        //    articleContent.SetValue(dateToProperty.Alias, articleToAdd.DateTo);
 
-            //Deal with file upload and media picker
-            var featuredImageProperty = Article.GetModelPropertyType(_snapshotAccessor, a => a.FeaturedImage);
-            var mediaImageProperty = Article.GetModelPropertyType(_snapshotAccessor, a => a.MediaImage);
+        //    //Deal with file upload and media picker
+        //    var featuredImageProperty = Article.GetModelPropertyType(_snapshotAccessor, a => a.FeaturedImage);
+        //    var mediaImageProperty = Article.GetModelPropertyType(_snapshotAccessor, a => a.MediaImage);
 
-            if (articleToAdd.FeaturedImage != null)
-            {
-                var filePublishedContent = await _uploadedFileService.CreateFileUploadMedia(articleToAdd.FeaturedImage);
-                if(filePublishedContent != null)
-                    articleContent.SetValue(featuredImageProperty?.Alias, filePublishedContent.Url());
-                #endregion
-            }
-            if (articleToAdd.MediaImage != null)
-            {
-                #region Media Picker
-                var imageMedia = await _uploadedFileService.CreateMediaPicker(articleToAdd.MediaImage);
-                if(imageMedia != null)
-                    articleContent.SetValue(mediaImageProperty.Alias, imageMedia.GetUdi().ToString());
-                #endregion
-            }
-            //Save and publish content
-            _contentService.SaveAndPublish(articleContent);
-            return RedirectToUmbracoPage(parentId);
-        }
+        //    if (articleToAdd.FeaturedImage != null)
+        //    {
+        //        var filePublishedContent = await _uploadedFileService.CreateFileUploadMedia(articleToAdd.FeaturedImage);
+        //        if(filePublishedContent != null)
+        //            articleContent.SetValue(featuredImageProperty?.Alias, filePublishedContent.Url());
+        //        #endregion
+        //    }
+        //    if (articleToAdd.MediaImage != null)
+        //    {
+        //        #region Media Picker
+        //        var imageMedia = await _uploadedFileService.CreateMediaPicker(articleToAdd.MediaImage);
+        //        if(imageMedia != null)
+        //            articleContent.SetValue(mediaImageProperty.Alias, imageMedia.GetUdi().ToString());
+        //        #endregion
+        //    }
+        //    //Save and publish content
+        //    _contentService.SaveAndPublish(articleContent);
+        //    return RedirectToUmbracoPage(parentId);
+        //}
 
 
     }

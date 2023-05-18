@@ -1,0 +1,20 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Register>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+	Layout = "Master.cshtml";
+}
+
+<section>
+    <div class="row justify-content-center">
+        <h3>@Model.Value("pageTitle")</h3>
+     @*<p>@Model.Value("content")</p>-->*@
+    
+     
+     <div>
+         @await Umbraco.RenderMacroAsync("Register")
+     </div>
+    </div>
+    
+    
+</section>

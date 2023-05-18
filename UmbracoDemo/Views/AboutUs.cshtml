@@ -4,25 +4,14 @@
 @{
 	Layout = "Master.cshtml";
 }
-<h2>@Model.Name</h2>
+<h2>@Model.PageTitle</h2>
 <hr />
 <div class="row text-center justify-content-between">
     <div class="col-md-4 p-2">
         <div class=" card p-3">
-            <h4>@Umbraco.GetDictionaryValue("Mission")</h4>
-            <p>@Model.Value("mission")</p>
+            @*<h4>@Umbraco.GetDictionaryValue("Mission")</h4>*@
+            <p>@Model.Description</p>
         </div>
     </div>
-       <div class="col-md-4 p-2">
-            <div class="card p-3">
-            <h4>@Umbraco.GetDictionaryValue("Vision")</h4>
-            <p>@Model.Value("vision")</p>
-        </div>
-       </div>
-          <div class="col-md-4 p-2">
-               <div class=" card p-3">
-            <h4>@Umbraco.GetDictionaryValue("Goals")</h4>
-            <p>@Model.Value("goals")</p>
-        </div>
-          </div>
+
 </div>

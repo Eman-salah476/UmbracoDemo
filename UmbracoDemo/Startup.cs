@@ -1,4 +1,5 @@
 using Umbraco.Cms.Core.Notifications;
+using Umbraco.Cms.Infrastructure.Persistence;
 using UmbracoDemo.Configurations;
 using UmbracoDemo.Extensions;
 using UmbracoDemo.Models;
@@ -36,6 +37,10 @@ namespace UmbracoDemo
         /// </remarks>
         public void ConfigureServices(IServiceCollection services)
         {
+
+            //services.AddDbContextPool<SQLContext>(
+            //options => options.UseSqlServer(_config.GetConnectionString("umbracoDbDSN")));
+
             //Configure Services
             services.AddTransient<IUploadedFileService, UploadedFileService>();
 

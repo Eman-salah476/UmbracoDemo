@@ -8,6 +8,7 @@
 	<ItemGroup>
 		<PackageReference Include="bootstrap" Version="5.2.2" />
 		<PackageReference Include="Umbraco.Cms" Version="10.2.1" />
+		<PackageReference Include="uSync" Version="10.2.1" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -18,17 +19,23 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="wwwroot\assets\files\" />
-	  <Folder Include="wwwroot\css\" />
-	  <Folder Include="wwwroot\js\" />
-	  <Folder Include="wwwroot\Lib\bootstrap\js\" />
-	  <Folder Include="wwwroot\Lib\bootstrap\css\" />
+		<Folder Include="wwwroot\assets\files\" />
+		<Folder Include="wwwroot\css\" />
+		<Folder Include="wwwroot\js\" />
+		<Folder Include="wwwroot\Lib\bootstrap\js\" />
+		<Folder Include="wwwroot\Lib\bootstrap\css\" />
 	</ItemGroup>
 
-	<PropertyGroup>
+	<!--<PropertyGroup>
 		<CopyRefAssembliesToPublishDirectory>true</CopyRefAssembliesToPublishDirectory>
-	</PropertyGroup>
-	
+	</PropertyGroup>-->
+	<!--<ItemGroup>
+		--><!--<Content Include="umbraco/**" CopyToOutputDirectory="Always" />--><!--
+		<Content Include="umbraco/**">
+			<CopyToPublishDirectory>Always</CopyToPublishDirectory>
+		</Content>
+	</ItemGroup>-->
+
 	<PropertyGroup>
 		<!-- Razor files are needed for the backoffice to work correctly -->
 		<CopyRazorGenerateFilesToPublishDirectory>true</CopyRazorGenerateFilesToPublishDirectory>

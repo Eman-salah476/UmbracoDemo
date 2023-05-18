@@ -1,11 +1,11 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
-@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.HomePage>
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Home>
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 @{
 	Layout = "Master.cshtml";
 }
 
-<h3>@Model.Name</h3>
+<h3>Hello</h3>
 
 @using Umbraco.Cms.Core.Models
 @{
@@ -16,4 +16,4 @@
     }
 }
 
-<p>@Model.Value("header")</p>
+@*<p>@Model.Value("header")</p>*@

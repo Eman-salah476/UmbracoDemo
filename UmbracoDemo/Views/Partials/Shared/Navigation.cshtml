@@ -33,7 +33,7 @@
                 </ul>
 
                 <!-- Localization -->
-                <ul class="navbar-nav text-start">
+            @*    <ul class="navbar-nav text-start">
 
                     @foreach (var culture in Model.Cultures)
                     {
@@ -48,11 +48,14 @@
                         }          
                     }
                 </ul>
+                   *@
                 <div class="ms-5">
                     <a class="btn btn-primary" href="https://localhost:44339/umbraco#/content?mculture=en-US" target="_blank">Back Office</a>
                 </div>
+             
                 <!-- End Localization -->
             </div>
+            @Html.Partial("Login Status")
         </div>
     </nav>
 </div>
