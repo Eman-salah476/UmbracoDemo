@@ -13,5 +13,6 @@ namespace UmbracoDemo.Dtos.User
         [Display(Name = "Password")]
         [StringLength(256)]
         public string Password { get; set; } = null!;
+        public bool RememberMe { get; set; } = false;
     }
 }
